@@ -1,0 +1,168 @@
+/* General body styling (applies to all pages) */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Restricting background to bookings page */
+body.bookings-page {
+  background-image: url('https://img.freepik.com/free-photo/pouch-map-toy-airplane-blue-background-with-space-writing-text_23-2147958180.jpg?t=st=1733838534~exp=1733842134~hmac=130496e2b0cab2454bb59e0fab104ed75b8f6297908618023cc33cace9538041&w=1060');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: blur(0.3px); /* Slight blur effect */
+  z-index: -1; /* Keep the background behind content */
+}
+
+/* Bookings container */
+.bookings {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px; /* Reduced padding for a smaller container */
+  max-width: 500px; /* Set a max-width to make the container smaller */
+  width: 90%; /* Ensure container takes up 90% of the available width but with a max width */
+  margin: 40px auto; /* Center the container horizontally with automatic margins */
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Added larger border-radius for rounded corners */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  z-index: 1;
+  min-height: 70vh; /* Slightly smaller height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  overflow-y: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Added a soft shadow effect */
+  backdrop-filter: blur(20px); /* Optional: add a blurred background for a frosted glass effect */
+  
+}
+
+/* Heading style */
+.bookings h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1fd9f6; /* Soft green color for titles */
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase for a cleaner look */
+}
+
+/* Form container */
+.bookings form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px; /* Space between form fields */
+}
+
+/* Form input fields */
+.bookings input {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fafafa;
+  transition: border 0.3s ease; /* Smooth transition on focus */
+}
+
+.bookings input:focus {
+  border: 1px solid #2a9d8f; /* Change border color on focus */
+  outline: none;
+}
+
+/* Submit button styling */
+.bookings button {
+  padding: 12px;
+  background-color: #38c5f0;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Slightly larger border-radius for a smoother button */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow for depth */
+}
+
+.bookings button:hover {
+  background-color: #dd7616;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Success message styling */
+.bookings .message {
+  margin-top: 20px;
+  color: #4CAF50;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Bookings list container */
+.bookings-list {
+  margin-top: 30px;
+}
+
+/* Each booking item styling */
+.booking-item {
+  background-color: #f9f9f9;
+  padding: 18px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for items */
+  font-size: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.booking-item:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Booking item text style */
+.booking-item p {
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Cancel button styling */
+.booking-item button {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.booking-item button:hover {
+  background-color: #d32f2f;
+}
+
+/* Location buttons */
+.location-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.location-buttons button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.location-buttons button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,58 @@
+/* AdventureAwaits.css */
+.adventure-awaits {
+    padding: 60px 20px;
+    text-align: center;
+    background: url("desti_adven.gu.jpg") no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh; /* Ensure the section takes full viewport height */
+  }
+  
+  .adventure-awaits h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .adventure-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .adventure-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: #333;
+  }
+  
+  .adventure-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .adventure-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .adventure-card:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .adventure-card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  

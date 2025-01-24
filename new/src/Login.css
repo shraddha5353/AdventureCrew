@@ -1,0 +1,87 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('login.jpg') no-repeat center center/cover;
+  color: #fff;
+}
+
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    width: 300px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .login-btn {
+    width: auto; /* Adjust width to content instead of full width */
+    padding: 0.5rem 1rem;  /* Smaller padding */
+    background-color: #6e8efb;
+    border: none;
+    color: #fff;
+    font-size: 0.85rem;  /* Slightly smaller font size */
+    border-radius: 8px;  /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #5a7be3; /* Change color on hover */
+  }
+  
+  
+  
+  .register-link {
+    margin-top: 1rem;
+  }
+  .message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+  .register-link {
+    margin-top: 1rem;
+    color: #fff; /* White color for text */
+  }
+  
+  .register-link a {
+    color: #fff; /* Ensures the link is white */
+    text-decoration: underline; /* Optional: Makes the link stand out */
+    transition: color 0.3s ease; /* Smooth color transition for hover */
+  }
+  
+  .register-link a:hover {
+    color: #f0f0f0; /* Slightly lighter shade of white on hover */
+  }
+  
+  
+  
+  

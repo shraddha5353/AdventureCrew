@@ -1,0 +1,88 @@
+.place-container {
+    padding: 20px;
+    text-align: center;
+    background-image: url("https://3.bp.blogspot.com/-8pv6QseE_NY/XC27nG8P74I/AAAAAAAACoM/HVodkA_adAAu9gTFZxfPXuxh0YHdr4ODwCLcBGAs/s1600/best+background+images+4.jpg"); /* Add your background image URL here */
+    background-size: cover; /* Ensures the background image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: white; /* Ensures text is visible over the image */
+    height: 100vh; /* Makes the container fill the entire height of the viewport */
+    display: flex; /* Enables flexbox to align content */
+    flex-direction: column; /* Align items in a column */
+    justify-content: center; /* Centers content vertically */
+  }
+  
+  /* Heading styles */
+  .place-container h1 {
+    font-size: 2.5rem;
+    color: #fff; /* White color for the heading to contrast against the background */
+    margin-bottom: 40px; /* Adds space between heading and stat cards */
+  }
+  
+  /* Style for the stat cards container */
+  .stat-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+    gap: 20px; /* Spacing between cards */
+    justify-items: center; /* Centers cards horizontally */
+    align-items: center; /* Centers cards vertically */
+    padding: 0 20px; /* Add some horizontal padding */
+  }
+  
+  /* Style for each card */
+  .card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px; /* Controls the max width of the cards */
+  }
+  
+  /* Hover effect for cards */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style for the image in each card */
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures the image covers the space without distortion */
+    border-radius: 8px;
+    margin-bottom: 15px; /* Adds space between the image and the content */
+  }
+  
+  /* Styles for the card titles */
+  .card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the card descriptions */
+  .card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px; /* Adds space between description and the button */
+  }
+  
+  /* Styles for the Explore button */
+  .explore-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .explore-button:hover {
+    background-color: #0056b3;
+  }
+  

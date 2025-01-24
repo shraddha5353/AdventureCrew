@@ -1,0 +1,26 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.dashboard {
+  padding: 20px;
+  margin-left: 250px; /* Space for sidebar */
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  min-height: calc(100vh - 60px); /* Adjust for Navbar height */
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.visible + .dashboard {
+  margin-left: 0; /* Adjust for when the sidebar is toggled off */
+}
+
+.dashboard h2 {
+  font-size: 36px;
+}
+
+.dashboard p {
+  font-size: 18px;
+}

@@ -1,0 +1,67 @@
+/* Payment-specific background */
+.payment-container {
+  background-image: url("https://cdn.pixabay.com/animation/2023/07/26/00/20/00-20-51-158_512.gif");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1; /* Keeps the background at the back */
+}
+
+/* Payment page container */
+.payment {
+  background-color: rgba(255, 255, 255, 0.9); /* Slight white background with transparency */
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 450px;
+  margin: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1; /* Ensures content is above the background */
+  position: relative;
+}
+
+/* Additional styles for the payment component */
+.payment h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #4b9ce2;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Button styling */
+button {
+  width: auto;
+  padding: 8px 16px;
+  background-color: #4b9ce2;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #3a85c3;
+  transform: translateY(-3px);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

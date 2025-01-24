@@ -1,0 +1,59 @@
+/* GuidedTours.css */
+.guided-tours {
+    padding: 60px 20px;
+    text-align: center;
+    background: url("desti_adven.gu.jpg") no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  .guided-tours h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .tour-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .tour-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    color: #333;
+  }
+  
+  .tour-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .tour-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .tour-card:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .tour-card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
