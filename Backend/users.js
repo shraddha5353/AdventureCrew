@@ -1,18 +1,25 @@
 const express = require("express");
-const mongodb = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 const router = express.Router();
-const dbClient = mongodb.MongoClient;
+
+let client;
+async function connectToDB() {
+  if (!client) {
+    client = new MongoClient(process.env.MONGO_URI);
+    await client.connect();
+  }
+  return client.db("project");
+}
 
 // GET route for fetching users
 router.get("/", async (req, res) => {
   try {
-    const client = await dbClient.connect("mongodb://127.0.0.1:27017", { useUnifiedTopology: true });
-    const db = client.db("project");
+    const db = await connectToDB();
     const collection = db.collection("registration");
 
-    // Retrieve all users with only their email (or any fields you want)
-    const users = await collection.find({}, { projection: { email: 1, fullName: 1 } }).toArray();
+    // Retrieve all users with email and fullName
+    const users = await collection.find({}, { projection: { email: 1, fullName: 1, _id: 0 } }).toArray();
 
     res.status(200).json(users);
   } catch (error) {
