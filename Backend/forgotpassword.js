@@ -5,7 +5,8 @@ const bcrypt = require("bcrypt");
 const { sendOtpEmail } = require("./mailer"); // Adjust path if necessary
 
 // MongoDB Connection URI
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb+srv://shraddhadeshpande64:Rani%406565@cluster0.6cqi0.mongodb.net/project?retryWrites=true&w=majority&appName=Cluster0";
+
 
 // POST route for sending OTP
 router.post("/", async (req, res) => {
