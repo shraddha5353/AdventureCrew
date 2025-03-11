@@ -1,92 +1,49 @@
-import React, { useState } from 'react';
-import './ChatBox.css';
+import React, { useState } from "react";
+import "./ChatBox.css";
 
-const Delhichatbox = () => {
+const ChatBox = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [chatHistory, setChatHistory] = useState([
-    { type: 'bot', text: 'Hi! How may I help you with Delhi today?' },
+    { type: "bot", text: "Hi! How may I assist you today?" },
   ]);
-  const [currentStep, setCurrentStep] = useState('main');
+  const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const mainOptions = ['Restaurants', 'Hotels', 'Pilgrims'];
-  const subOptions = {
-    Restaurants: ['5-Star', '4-Star', '3-Star'],
-    Hotels: ['1-Bedroom Accommodation', '2-Bedroom Accommodation'],
-    Pilgrims: ['Most Famous', 'Oldest'],
-  };
-
-  const suggestions = {
-    '5-Star': [
-      'The Oberoi, New Delhi',
-      'Taj Mahal Hotel, New Delhi',
-      'The Leela Palace, New Delhi',
-    ],
-    '4-Star': [
-      'Radisson Blu, Dwarka',
-      'The Claridges, New Delhi',
-      'WelcomHotel Sheraton, Saket',
-    ],
-    '3-Star': [
-      'Hotel City Star, Paharganj',
-      'The Park Inn, Karol Bagh',
-      'Bloomrooms, Janpath',
-    ],
-    '1-Bedroom Accommodation': [
-      'OYO Townhouse 77, Saket',
-      'FabHotel Ashirwad Residency, Connaught Place',
-    ],
-    '2-Bedroom Accommodation': [
-      'The Lodhi, New Delhi',
-      'ITC Maurya, Chanakyapuri',
-    ],
-    'Most Famous': [
-      'Akshardham Temple',
-      'Lotus Temple',
-    ],
-    Oldest: [
-      'Jama Masjid',
-      'Humayun’s Tomb',
-    ],
-  };
-
-  const handleOptionClick = (option) => {
-    if (currentStep === 'main') {
+  // Function to handle sending messages to the backend with location context
+  const handleSendMessage = async () => {
+    if (!userInput.trim()) return;
+  
+    const userMessage = { type: "user", text: userInput };
+    setChatHistory((prev) => [...prev, userMessage]);
+    setUserInput("");
+    setLoading(true);
+  
+    // Dynamically get the location (hardcoded for now, can be set dynamically)
+    const currentLocation = "Delhi";
+  
+    try {
+      const response = await fetch("http://localhost:3001/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userInput, location: currentLocation }),
+      });
+  
+      const data = await response.json();
+      console.log("💬 AI Response:", data); // Debugging to check response
+  
       setChatHistory((prev) => [
         ...prev,
-        { type: 'user', text: option },
-        { type: 'bot', text: `Here are the options for ${option}: ` },
+        { type: "bot", text: data.reply || `Sorry, I couldn't find information on ${currentLocation}.` },
       ]);
-      setCurrentStep(option);
-    } else if (subOptions[currentStep].includes(option)) {
-      setChatHistory((prev) => [
-        ...prev,
-        { type: 'user', text: option },
-        { type: 'bot', text: `Here are some suggestions for ${option}:` },
-        ...suggestions[option].map((item) => ({ type: 'bot', text: `- ${item}` })),
-        { type: 'bot', text: 'You can now return to the main menu or explore more options.' },
-      ]);
-      setCurrentStep('main');
+    } catch (error) {
+      console.error("🚨 Error communicating with AI:", error);
+      setChatHistory((prev) => [...prev, { type: "bot", text: "Error processing request." }]);
+    } finally {
+      setLoading(false);
     }
   };
-
-  const renderOptions = () => {
-    if (currentStep === 'main') {
-      return mainOptions.map((option) => (
-        <button key={option} className="chat-option-button" onClick={() => handleOptionClick(option)}>
-          {option}
-        </button>
-      ));
-    }
-    if (subOptions[currentStep]) {
-      return subOptions[currentStep].map((option) => (
-        <button key={option} className="chat-option-button" onClick={() => handleOptionClick(option)}>
-          {option}
-        </button>
-      ));
-    }
-    return null;
-  };
-
+  
+  // Toggle chat box visibility
   const toggleChatBox = () => {
     setIsOpen(!isOpen);
   };
@@ -95,30 +52,40 @@ const Delhichatbox = () => {
     <div className="chat-box-container">
       {!isOpen ? (
         <button className="chat-box-link" onClick={toggleChatBox}>
-        Chat with us
+          Chat with Us
         </button>
       ) : (
         <div className="chat-box">
           <div className="chat-box-header">
-            <span>Chat with us</span>
+            <span>Chat with Us</span>
             <button onClick={toggleChatBox}>X</button>
           </div>
           <div className="chat-box-history">
             {chatHistory.map((message, index) => (
               <div
                 key={index}
-                className={`chat-message ${message.type === 'bot' ? 'bot-message' : 'user-message'}`}
+                className={`chat-message ${message.type === "bot" ? "bot-message" : "user-message"}`}
               >
                 {message.text}
               </div>
             ))}
+            {loading && <div className="bot-message">Thinking...</div>}
           </div>
-          <div className="chat-box-options">{renderOptions()}</div>
+          <div className="chat-box-input">
+            <input
+              type="text"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              placeholder="Type your message..."
+            />
+            <button onClick={handleSendMessage} disabled={loading}>
+              Send
+            </button>
+          </div>
         </div>
       )}
     </div>
   );
 };
 
-export default Delhichatbox;
-
+export default ChatBox;
