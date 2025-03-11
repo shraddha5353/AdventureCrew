@@ -5,14 +5,14 @@ const bcrypt = require("bcrypt");
 const { sendOtpEmail } = require("./mailer"); // Adjust path if necessary
 
 // MongoDB Connection URI
-const uri = "mongodb://localhost:27017";
+const uri = process.env.MONGO_URI;
 
 // POST route for sending OTP
 router.post("/", async (req, res) => {
   const { email } = req.body;
 
   try {
-    const client = await MongoClient.connect(uri, { useUnifiedTopology: true });
+    const client = await MongoClient.connect(uri);
     const db = client.db("project");
     const collection = db.collection("registration");
 
