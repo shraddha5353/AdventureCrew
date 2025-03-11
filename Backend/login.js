@@ -4,7 +4,8 @@ const router = express.Router();
 const { MongoClient } = require("mongodb");
 
 // MongoDB Connection URI
-const uri = "mongodb://localhost:27017";
+const uri="mongodb+srv://shraddhadeshpande64:Rani%406565@cluster0.6cqi0.mongodb.net/project?retryWrites=true&w=majority&appName=Cluster0";
+
 
 // POST route for logging in a user
 router.post("/", async (req, res) => {
