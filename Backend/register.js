@@ -5,7 +5,8 @@ const { MongoClient } = require("mongodb");
 const { sendConfirmationEmail } = require("./mailer");
 
 // MongoDB Connection URI
-const uri = "mongodb://localhost:27017";
+const uri ="mongodb+srv://shraddhadeshpande64:Rani%406565@cluster0.6cqi0.mongodb.net/project?retryWrites=true&w=majority&appName=Cluster0";
+
 
 // Password validation function
 const validatePassword = (password) => {
