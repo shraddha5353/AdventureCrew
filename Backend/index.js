@@ -6,7 +6,7 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
 // MongoDB connection URI and database name
-const mongoURI = "mongodb://127.0.0.1:27017";
+const mongoURI ="mongodb+srv://shraddhadeshpande64:Rani%406565@cluster0.6cqi0.mongodb.net/project?retryWrites=true&w=majority&appName=Cluster0";
 const dbName = "project";
 
 // Razorpay Configuration
@@ -130,7 +130,8 @@ app.post("/api/payment/verify", async (req, res) => {
 // You can add other routes related to destinations, explore, etc.
 
 // Start the server
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
